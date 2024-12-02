@@ -1,7 +1,7 @@
 "use client";
 
 import { CampaignFilters } from "@/components/campaign-filters";
-import { CampaignGrid } from "@/components/campaign-grid";
+import CampaignGrid from "@/components/campaign-grid";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
