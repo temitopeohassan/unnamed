@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useTheme } from "next-themes";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,9 +11,31 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Heart } from "lucide-react";
+import {
+  ConnectWallet,
+  Wallet,
+  WalletDropdown,
+  WalletDropdownBasename, 
+  WalletDropdownFundLink, 
+  WalletDropdownLink, 
+  WalletDropdownDisconnect,
+} from '@coinbase/onchainkit/wallet';
+import {
+  Address,
+  Avatar,
+  Name,
+  Identity,
+  EthBalance, 
+} from '@coinbase/onchainkit/identity';
 
 export function Navbar() {
+  const { theme } = useTheme();
+
+  const handleConnect = () => {
+    // Handle wallet connection logic here
+    console.log("Wallet connected");
+  };
+
   return (
     <header className="border-b">
       <div className="container mx-auto px-4">
@@ -43,9 +66,36 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <Button asChild>
-              <Link href="/#">Connect Wallet</Link>
-            </Button>
+            <Wallet>
+              <ConnectWallet 
+                onConnect={handleConnect}
+                className="bg-foreground text-background hover:bg-foreground/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2"
+              >
+                <Avatar className="h-6 w-6" />
+                <Name className={theme === 'light' ? 'text-white' : 'text-black'} />
+              </ConnectWallet>
+              <WalletDropdown>
+                <Identity 
+                  className="px-4 pt-3 pb-2 text-foreground" 
+                  hasCopyAddressOnClick
+                >
+                  <Avatar />
+                  <Name />
+                  <Address />
+                  <EthBalance />
+                </Identity>
+                <WalletDropdownBasename className="text-foreground" />
+                <WalletDropdownLink
+                  icon="wallet"
+                  href="https://keys.coinbase.com"
+                  className="text-foreground"
+                >
+                  Wallet
+                </WalletDropdownLink>
+                <WalletDropdownFundLink className="text-foreground" />
+                <WalletDropdownDisconnect className="text-foreground" />
+              </WalletDropdown>
+            </Wallet>
           </div>
         </div>
       </div>
