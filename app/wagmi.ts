@@ -7,7 +7,7 @@ export function getConfig() {
     chains: [base, baseSepolia],
     connectors: [
       coinbaseWallet({
-        appName: "OnchainKit",
+        appName: "OnchainRaiser",
         preference: 'all',
         version: '4',
       }),

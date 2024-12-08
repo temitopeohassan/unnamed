@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-semibold mb-4">Fundraise for</h3>
+            <h3 className="font-semibold mb-4">Raise funds for</h3>
             <ul className="space-y-2">
               <li>
                 <Button variant="link" className="p-0 h-auto" asChild>
@@ -111,7 +111,7 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 FundRaiser. All rights reserved.
+            © 2024 OnchainRaiser. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Button variant="ghost" size="sm">
