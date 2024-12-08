@@ -12,7 +12,7 @@ import { WagmiConfigProvider } from './components/wagmi-config-provider';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FundRaiser - Crowdfunding Platform",
+  title: "OnchainRaiser - Onchain Crowdfunding Platform",
   description: "A modern crowdfunding platform to help raise funds for your cause",
 };
 
